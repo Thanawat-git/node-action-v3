@@ -14,8 +14,18 @@ describe('GET "/"', () => {
     }
 })
 
-describe('GET "/item"', ()=> {
-    it('respond Items'), (done) => {
-        request(app).get('/item'.expect(done).toBeInstanceOf(Array))
-    }
-})
+// describe('GET "/item"', ()=> {
+//     it('respond Items'), (done) => {
+//         request(app).get('/item'.expect(done).toBeInstanceOf(Array))
+//     }
+// })
+
+// describe('GET "/item"', ()=> {
+//     it('respond Items'), (done) => {
+        
+//         let want = [
+//             {no: '1', name: 'Iphone 12 Pro Max'}
+//         ]
+//         request(app).get('/item'.expect(want, done)
+//         }
+// })
