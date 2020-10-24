@@ -2,8 +2,20 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
+const items = [
+    {no: '1', name: 'Iphone 12 Pro Max'}
+]
+
 app.get('/', (req, res) => {
-    return res.send('Hello')
+    return res.send('Hello!')
+})
+
+function getItem(){
+    return items
+}
+
+app.get('/item', (req, res) => {
+    return res.json(getItem)
 })
 
 app.listen(port, () => {
