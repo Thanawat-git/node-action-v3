@@ -25,5 +25,6 @@ jobs: # งาน
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci # คำสั่งต่างๆที่เราตรวจสอบ
+    - run: npm run unit-test # การ test ควรเริ่มจากการ run unit test ก่อนเพื่อความเร็วในการ test ถ้าอันนี้ไม่ผ่านก็จะไม่ทำอย่างอื่นอีก
     - run: npm run build --if-present # คำสั่งต่างๆที่เราตรวจสอบ
     - run: npm test # คำสั่งต่างๆที่เราตรวจสอบ
