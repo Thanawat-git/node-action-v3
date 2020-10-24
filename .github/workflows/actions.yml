@@ -3,27 +3,27 @@
 
 name: Node.js CI
 
-on:
-  push:
-    branches: [ master ]
+on: # workflow จะถูกเรียกขึ้นมาทำงานก็ต่อเมื่อเกิด Event เหล่านี้กับ repo ของคุณ
+  push: # Event
+    branches: [ master ] # กำหนดว่าเราจะดักจับที่ branch ไหน ในที่นี้คือ master
   pull_request:
     branches: [ master ]
 
-jobs:
-  build:
+jobs: # งาน
+  build: # งานที่ให้ทำ ในที่นี้คือ build
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # บอกว่าจะถูก run บน OS อะไร
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [10.x, 12.x, 14.x] # กำหนด version ที่เราจะตรวจสอบว่าจะเช็คใน version ไหนบ้าง
 
-    steps:
+    steps: # บอกว่า job ชื่อ build อันนี้ ต้องทำอะไรบ้าง เป็นขั้นตอน
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - run: npm ci # คำสั่งต่างๆที่เราตรวจสอบ
+    - run: npm run build --if-present # คำสั่งต่างๆที่เราตรวจสอบ
+    - run: npm test # คำสั่งต่างๆที่เราตรวจสอบ
